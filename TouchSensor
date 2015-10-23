@@ -1,0 +1,23 @@
+import lejos.robotics.navigation.*;
+import lejos.nxt.*;
+/**
+ * Robot that travels a distance and stops
+ */
+public class TouchSensor {	
+	public static void main(String[] args) {
+		TouchSensor touch = new TouchSensor(SensorPort.S3);
+		DifferentialPilot pilot = new DifferentialPilot(2.1f, 4.4f, Motor.B, Motor.C);
+      pilot.setTravelSpeed(10); 
+		// Move foward 
+		while (!touch.isPressed()) {
+      pilot.forward(); 
+     
+		while (touch.isPressed()){
+			
+         pilot.travel(-7);
+         pilot.rotate(125);
+         pilot.forward();
+         
+         }
+         }
+         Button.ESCAPE.waitForPress();
